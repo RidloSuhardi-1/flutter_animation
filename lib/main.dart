@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'animated_builder/animated_builder.dart';
+
 void main() {
   runApp(const LogoApp());
 }
@@ -47,23 +49,20 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
     //   });
 
     // implementasi animated widget
-    animation = Tween<double>(begin: 0, end: 300).animate(controller)
-      // status perubahan state
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          controller.reverse();
-        } else if (status == AnimationStatus.dismissed) {
-          controller.forward();
-        }
-      })
-      ..addStatusListener((status) => debugPrint(status.toString()));
+    animation = Tween<double>(begin: 0, end: 300).animate(controller);
     controller.forward();
   }
 
   @override
   Widget build(BuildContext context) {
+    // implementasi animated builder
+    return GrowTransition(
+      animation: animation,
+      child: const LogoWidget(),
+    );
+
     // implementasi animated widget
-    return AnimatedLogo(animation: animation);
+    // return AnimatedLogo(animation: animation);
 
     // return Center(
     //   child: Container(
