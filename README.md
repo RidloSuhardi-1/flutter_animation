@@ -2,15 +2,53 @@
 
 A new Flutter project.
 
-## Getting Started
+## Hasil Praktikum
 
-This project is a starting point for a Flutter application.
+        class widget LogoApp
 
-A few resources to get you started if this is your first Flutter project:
+        import 'package:flutter/material.dart';
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+        void main() => runApp(const LogoApp());
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+        class LogoApp extends StatefulWidget {
+        const LogoApp({super.key});
+
+        @override
+        State<LogoApp> createState() => _LogoAppState();
+        }
+
+        class _LogoAppState extends State<LogoApp> {
+        @override
+        Widget build(BuildContext context) {
+            return Center(
+            child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 10),
+                height: 300,
+                width: 300,
+                child: const FlutterLogo(),
+            ),
+            );
+        }
+        }
+
+<img src="images/1.png">
+
+- Rendering animations
+
+    <img src="images/default.gif">
+
+- Simplifying with Animated­Widget
+
+    <img src="images/animated-widget.gif">
+
+- Monitoring the progress of the animation
+
+    <img src="images/monitoring-status.gif">
+
+- Refactoring with AnimatedBuilder
+
+    <img src="images/animated-builder.gif">
+
+- Simultaneous animations
+
+    <img src="images/simultan-animasi.gif">
