@@ -47,7 +47,16 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
     //   });
 
     // implementasi animated widget
-    animation = Tween<double>(begin: 0, end: 300).animate(controller);
+    animation = Tween<double>(begin: 0, end: 300).animate(controller)
+      // status perubahan state
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          controller.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          controller.forward();
+        }
+      })
+      ..addStatusListener((status) => debugPrint(status.toString()));
     controller.forward();
   }
 
